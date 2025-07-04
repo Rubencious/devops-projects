@@ -23,15 +23,14 @@
   - name: Render Consul Configuration Template
     template:
       src: config.json.j2
-      dest: /etc/consul.d/config.json
+      dest: /etc/consul.d/consul.hcl
     vars:
-      server: "false"
-      datacenter: "dc1"
+      bind_addr: "{{ ansible_default_ipv4.address }}"
   
   - name: Render Consul Backend Template
     template:
       src: backend.json.j2
-      dest: /etc/consul.d/backend.json
+      dest: /etc/consul.d/backend.hcl
   
   - name: Create Consul systemd service unit
     template:

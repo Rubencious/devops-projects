@@ -1,11 +1,12 @@
 {
-    "server": {{ server }},
-    "datacenter": "{{ datacenter }}",
+    "bind_addr": "{{ bind_addr }}",
+    "server": false,
+    "datacenter": "dc1",
     "data_dir": "/var/consul",
-    "encrypt": "{{ encrypt }}",
+    "encrypt": "ZENZNrsXU336Uma+S4XUj9sxvICj32N7XdEzrbYbRpY=",
     "log_level": "INFO",
     "enable_script_checks": true,
     "enable_syslog": true,
     "leave_on_terminate": true,
-    "start_join": [{{ consul_server_address | to_json }}]
+    "start_join": ["172.31.23.218"]
 }
